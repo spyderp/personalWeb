@@ -1,0 +1,154 @@
+body{
+	font-family: Georgia;
+	font-size: 16px;
+	color: #fff;
+	background: url(../img/background_half.jpg);
+	
+}
+article{
+	padding: 1em 0 0;
+
+}
+aside{
+	background-color: #000;
+	border-bottom:12px double #fff; 
+	color: #686868;
+	display: inline-block;
+	font-family: Arial;
+	padding: 130px 0.5em 1.8em;
+	transform: skewY(10deg);
+	vertical-align: top;
+	width: 208px;	
+}
+aside p{
+	margin:0.3em 0;
+	padding: 0;
+}
+figure{
+	transform: skewY(-10deg);
+}
+h1, h2, h3{
+	margin:0;
+	padding: 0;
+}
+h1 a{
+	color: #93dcba;
+	font-family: 'Oleo Script Swash Caps', cursive;
+	font-size: 28px;
+	text-decoration: none;
+	text-shadow: -4px 3px  #444;
+}
+h2{
+	border-bottom: 2px solid #0e7cb0;
+	color: #0cb41c;
+	font-family: 'Oleo Script Swash Caps', cursive;
+	font-size: 1.5em;
+}
+h3{
+	font-size: 1em;
+}
+input[type='text'], input[type='email']{
+	border-radius: 10px;
+	display: block;
+	font-weight: bold;
+	margin-bottom: 0.3em;
+	padding: 0.4em 0.5em;
+	width: 50%;
+
+}
+header{
+	background: url(../img/carton2.png);
+	height: 115px;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 99999;
+}
+nav{
+	display: inline-block;
+	padding-top: 1.6em;
+	vertical-align: top;
+}
+section{
+	display: inline-block;
+	padding: 130px 0.5em 0.5em;
+	vertical-align: top;
+	width: 76%;
+}
+textarea{
+	border-radius: 20px;
+	height: 150px;
+	margin-bottom: 0.6em;
+	padding: 0.4em 0.5em;
+	width: 88%;
+}
+#head, #content{
+	width: 90%;
+	max-width: 1024px;
+	margin:0 auto;
+}
+#menu{
+	margin: 0;
+	padding: 0;
+}
+#menu li{
+	display: inline-block;
+	margin: 0 0.2em;
+	padding: 0;
+}
+#menu a{
+	background: -*-linear-gradient(top, #356aa0 0%,#5085bb 100%);
+	border: 2px solid #1194d2;
+	color: #fff;
+	display: inline-block;
+	font-family: Arial;
+	font-weight: bold;
+	padding: 0.5em 0.875em;
+	transform:rotate(-5deg);
+	text-decoration: none;
+	transition: all 0.5s ease-in-out;
+}
+
+#menu a:hover{
+	transform: scale(1.2) rotate(-5deg);
+}
+#logo{
+	display: inline-block;
+	padding: 1em 3.2em 0 0;
+}
+.boton{
+	background: -*-linear-gradient(top, #009ec3 0%,#00b7ea 100%);
+	border: 1px solid #fff;
+	border-radius: 10px;
+	color: #fff;
+	font-family: Arial;
+	font-weight: bold;
+	padding: 0.5em 0.75em;
+}
+.boton:hover{
+	background:#009ec3; 
+}
+.botonesBox{
+
+	text-align: right;
+	width: 85%;
+}
+.imgPersonal{
+	border: 4px solid #fff;
+	width: 228px;
+	height: 228px;
+	margin: 0 0 0.75em -5%;
+	position: relative;
+	border-radius: 100%;
+}
+@keyframes fadeInUp {
+	0% {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
