@@ -25,14 +25,14 @@ function correo($nombre, $correo, $tema, $descripcion){
 	require 'class.phpmailer.php';
 	$mail = new PHPMailer;
 	$mail->IsSMTP();                                      // Set mailer to use SMTP
-	$mail->Host = 'smtp.secureserver.net';  // Specify main and backup server
+	$mail->Host = 'smtpout.secureserver.net';  // Specify main and backup server
 	$mail->SMTPAuth = true;                               // Enable SMTP authentication
 	$mail->Username = 'contacto@ricardo-portillo.com';                            // SMTP username
 	$mail->Password = 'Contacto00?';                           // SMTP password
-	//$mail->SMTPSecure = 'tls';                            // Enable encryption, 'ssl' also accepteds
+	//$mail->SMTPSecure = 'tls';     */                       // Enable encryption, 'ssl' also accepteds
 	$mail->From = 'contacto@ricardo-portillo.com';
 	$mail->FromName = 'Ricardo-Portillo.com';
-	$mail->AddAddress('portillo,ricardog@gmail.com');               
+	$mail->AddAddress('portillo.ricardog@gmail.com');               
 	$mail->AddBCC($correo);
 	$mail->IsHTML(true);                                  // Set email format to HTML
 

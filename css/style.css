@@ -6,8 +6,28 @@ body{
 	
 }
 article{
+	animation: fadeInUp 3s;
 	padding: 1em 0 0;
 
+}
+article a{
+	color: #097113
+}
+article table{
+	background-color: #eeeeee;
+	color: #333;
+	font-family: arial;
+	width: 98%;
+}
+article td{
+	padding: 0.3em;
+
+}
+article td:first-child{
+	border-right: 2px solid #aba9a9;
+}
+article tr:nth-child(even){
+	background-color: #d5d5d5; 
 }
 aside{
 	background-color: #000;
@@ -16,6 +36,7 @@ aside{
 	display: inline-block;
 	font-family: Arial;
 	padding: 130px 0.5em 1.8em;
+	position: fixed;
 	transform: skewY(10deg);
 	vertical-align: top;
 	width: 208px;	
@@ -62,7 +83,7 @@ header{
 	position: fixed;
 	top: 0;
 	width: 100%;
-	z-index: 99999;
+	z-index: 999;
 }
 nav{
 	display: inline-block;
@@ -82,6 +103,7 @@ textarea{
 	padding: 0.4em 0.5em;
 	width: 88%;
 }
+
 #head, #content{
 	width: 90%;
 	max-width: 1024px;
@@ -97,6 +119,7 @@ textarea{
 	padding: 0;
 }
 #menu a{
+	animation: menuRota 2s;
 	background: -*-linear-gradient(top, #356aa0 0%,#5085bb 100%);
 	border: 2px solid #1194d2;
 	color: #fff;
@@ -141,14 +164,60 @@ textarea{
 	position: relative;
 	border-radius: 100%;
 }
+.msg{
+	animation: fadeInUp 2s;
+    background-image: linear-gradient(90deg, rgba(255,255,255,.07) 50%, transparent 50%), 
+                      linear-gradient(90deg, rgba(255,255,255,.13) 50%, transparent 50%),
+                      linear-gradient(90deg, transparent 50%, rgba(255,255,255,.17) 50%),
+                      linear-gradient(90deg, transparent 50%, rgba(255,255,255,.19) 50%);
+	background-size: 13px, 29px, 37px, 53px;
+	border-radius: 10px;
+	color: #fff;
+	font-family: arial;
+	font-weight: bold;
+	margin: 0 auto;
+	margin: 0.5em;
+	padding: 0.5em;
+	text-align: center;
+	text-shadow: -2px 2px  #333;
+
+}
+.error{
+
+	background-color: #910505;
+	border:2px solid #550000;
+}
+.sucess{
+	background-color: #1a8800;
+	border:2px solid #0f4502;
+}
+.overlay{
+	background: rgba(255,255,255,0.45); 
+	color: #999;
+	min-height: 840px;
+	position: fixed;
+	width: 100%;
+	font-size: 3em;
+	font-weight: bold;
+	text-align: center;
+	padding-top: 30%;
+	z-index: 99999;
+	display: none;
+}
 @keyframes fadeInUp {
 	0% {
 		opacity: 0;
-		transform: translateY(20px);
+		transform: translateY(30px);
 	}
 	
 	100% {
 		opacity: 1;
 		transform: translateY(0);
+	}
+}
+@keyframes menuRota{
+	0% {
+		transform:rotate( 30deg);
+		
 	}
 }

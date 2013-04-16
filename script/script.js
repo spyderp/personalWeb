@@ -1,11 +1,20 @@
+function disenoWeb(url){
+	$('.content').empty();
+}
 function changeTitle(titulo){
 	$('.titulo').html(titulo);
 }
-function nuevaPagina(){
-	changeTitle($(this).data('title'));
-	var url=$(this).attr('href');
-	$('.content').load(url);
-	return false;
+function clearForm(ele) {
+    $(ele).find(':input').each(function() {
+        switch(this.type) {
+            case 'text':
+            case 'textarea':
+            case 'email':	
+                $(this).val('');
+                break;
+        }
+    });
+
 }
 function contenidoJson(){
 	changeTitle($(this).data('title'));
@@ -17,24 +26,36 @@ function contenidoJson(){
 	}
 	return false;
 }
-function disenoWeb(url){
-	$('.content').empty();
+function inicio(){
+	changeTitle('Curriculum Vitae');
+	$('.content').load('cv.html');
 }
-function programacion(url){
-	$('.content').empty();
-}
-function showRecaptcha(element) {
-           Recaptcha.create("6LfxP70SAAAAAKVCKawU_Cn-hLd86bAV7bMEip5p", element, {
-             theme: "white",
-             lang: "es",
-             callback: Recaptcha.focus_response_field});
+function nuevaPagina(){
+	changeTitle($(this).data('title'));
+	var url=$(this).attr('href');
+	$('.content').load(url);
+	return false;
 }
 function processJson(data) { 
     // 'data' is the json object returned from the server 
-    alert(data.msg);
+    $('.overlay').hide();
+    d=document.createElement('div');
+    $(d).addClass('msg');
     if(data.resultado=='error'){
+    	$(d).addClass('error').html(data.msg);
+    	 $('.content').prepend(d);
     	reload();
-    } 
+    }else{
+    	$(d).addClass('sucess').html(data.msg);
+    	reload();
+    	clearForm('.formContacto');
+    }
+    setTimeout(function(){
+    	$('.msg').remove();
+    }, 9000);
+}
+function programacion(url){
+	$('.content').empty();
 }
 function reload(){
 	Recaptcha.reload();
@@ -42,9 +63,19 @@ function reload(){
 			$('#tokken').val(data.tokken);
 	});
 }
+function showRecaptcha(element) {
+           Recaptcha.create("6LfxP70SAAAAAKVCKawU_Cn-hLd86bAV7bMEip5p", element, {
+             theme: "white",
+             lang: "es",
+             callback: Recaptcha.focus_response_field});
+}
+function showRequest(formData, jqForm, options) { 
+	$('.overlay').show();
+}
+
 $('.menu').on('click', nuevaPagina);
 $('.contentJson').on('click', contenidoJson);
-$('article').on('focus', '.nombreCompleto', function(){
+$('.content').on('focus', '.nombreCompleto', function(){
 	var contenido=$('#captchaArea').html();
 	if(contenido==''){
 		showRecaptcha('captchaArea');
@@ -53,9 +84,10 @@ $('article').on('focus', '.nombreCompleto', function(){
 		});
 		$('.formContacto').ajaxForm({
 			dataType:  'json', 
-			success:   processJson 
+			beforeSubmit:  showRequest,
+			success:   processJson
 		});
 	}
 });
-
+$(document).on('ready', inicio);
 
