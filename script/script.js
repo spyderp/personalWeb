@@ -55,7 +55,40 @@ function processJson(data) {
     }, 9000);
 }
 function programacion(url){
+	var texto='';
+	var box='';
 	$('.content').empty();
+	$.getJSON(url, function(data){
+		$.each(data, function(index, value) {
+			var title = document.createElement('h4');
+			$(title).html(value.seccion);
+			$('.content').append(title);
+			$.each(value.data, function(index2, value2){
+				var box =document.createElement('div');
+				var span =document.createElement('span');
+				var table =document.createElement('table');
+				$(box).addClass('rpgBox');
+				$(box).append($('<div></div>').addClass('rpgImg '+value2.clase).html(span));
+				$(box).append($('<div></div>').addClass('rpgName').html('Nombe: '+value2.nombre));
+				$(box).append($('<div></div>').addClass('rpgLvl').html('Lv. '+value2.lvl));
+				$(box).append($('<div></div>').addClass('rpgHp').html('HP '+value2.HP));
+				$(box).append($('<div></div>').addClass('rpgMp').html('MP '+value2.MP));
+				$(table).attr({
+					cellpandding:0,
+					border:0,
+					cellspacing:0
+				});
+				$(table).append($('<tr></tr>').html('<td><span class="icon sword"></span></td><td>'+value2.str+' Str</td><td><span class="icon sombrero"></span></td><td>'+value2.str+' Int</td>'));
+				$(table).append($('<tr></tr>').html('<td><span class="icon def"></span></td><td>'+value2.def+' Def</td><td><span class="icon fe"></span></td><td>'+value2.fe+' Faith</td>'));
+				$(table).append($('<tr></tr>').html('<td><span class="icon agi"></span></td><td>'+value2.agi+' Agi</td><td><span class="icon suerte"></span></td><td>'+value2.luck+' Luck</td>'));
+				$(box).append(table);
+				$('.content').append(box);
+			});
+			
+		});
+		
+	});
+		
 }
 function reload(){
 	Recaptcha.reload();

@@ -139,6 +139,7 @@ textarea{
 	display: inline-block;
 	padding: 1em 3.2em 0 0;
 }
+
 .boton{
 	background: -*-linear-gradient(top, #009ec3 0%,#00b7ea 100%);
 	border: 1px solid #fff;
@@ -156,6 +157,23 @@ textarea{
 	text-align: right;
 	width: 85%;
 }
+.icon{
+	background: url(../img/csg-5160be103696c.png) no-repeat;
+	background-size: 16px 176px;
+ 	display: block;
+ 	height: 16px;
+ 	width: 16px;
+}
+.agi{
+	background-position: 0 -128px;
+}
+.def{
+	background-position: 0 -32px;
+}
+.fe{
+	background-position: 0 -160px;
+}
+
 .imgPersonal{
 	border: 4px solid #fff;
 	width: 228px;
@@ -187,9 +205,18 @@ textarea{
 	background-color: #910505;
 	border:2px solid #550000;
 }
+.sombrero{
+	background-position:0 -96px; 
+}
 .sucess{
 	background-color: #1a8800;
 	border:2px solid #0f4502;
+}
+.suerte{
+	background-position: 0 -64px;
+}
+.sword{
+	background-position: 0 0;
 }
 .overlay{
 	background: rgba(255,255,255,0.45); 
@@ -203,6 +230,30 @@ textarea{
 	padding-top: 30%;
 	z-index: 99999;
 	display: none;
+}
+.rpgBox{
+	background-color: #eee;
+	border-radius: 10px;
+	border: 2px solid #0E7CB0;
+	color: #000;
+	display: inline-block;
+	font-family: "Courier New";
+	margin: 0.4em;
+	padding: 0.6em;
+	width: 26%;
+}
+.rpgImg{
+	text-align: center;
+}
+.rpgImg span{
+	background: url(../img/sprite_pixergame.png) no-repeat;
+	background-size: 64px 546px;
+	display: block;
+	height: 32px;
+	width: 65px;
+}
+.cake span{
+
 }
 @keyframes fadeInUp {
 	0% {
