@@ -1,4 +1,5 @@
 function disenoWeb(url){
+	history.pushState({}, "Diseño web", 'webdesing.html');
 	$('.content').empty();
 	$.getJSON(url, function(data){
 		$.each(data, function(index, value) {
@@ -47,8 +48,10 @@ function lightBox(){
 	Lightview.show(url);	
 }
 function nuevaPagina(){
-	changeTitle($(this).data('title'));
+	var title =$(this).data('title');
 	var url=$(this).attr('href');
+	history.pushState({}, title, url);
+	changeTitle(title);
 	$('.content').load(url);
 	return false;
 }
@@ -71,6 +74,7 @@ function processJson(data) {
     }, 9000);
 }
 function programacion(url){
+	window.history.pushState({}, "Habilidades de programación y base de datos", url);
 	var texto='';
 	var box='';
 	$('.content').empty();
@@ -87,8 +91,8 @@ function programacion(url){
 				$(box).append($('<div></div>').addClass('rpgImg '+value2.clase).html(span));
 				$(box).append($('<div></div>').addClass('rpgName').html('Nombre: '+value2.nombre));
 				$(box).append($('<div></div>').addClass('rpgLvl').html('Lv. '+value2.lvl));
-				$(box).append($('<div></div>').addClass('rpgHp').html('HP '+value2.HP));
-				$(box).append($('<div></div>').addClass('rpgMp').html('MP '+value2.MP));
+				$(box).append($('<div></div>').addClass('rpgHp').html('HP <div class="barBox"><div class="bar" style="width:'+value2.HP+'%">'));
+				$(box).append($('<div></div>').addClass('rpgMp').html('MP <div class="barBox"><div class="bar" style="width:'+value2.MP+'%">'));
 				$(table).attr({
 					cellpandding:0,
 					border:0,
