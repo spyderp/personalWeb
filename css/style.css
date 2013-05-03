@@ -218,6 +218,27 @@ textarea{
 .sword{
 	background-position: 0 0;
 }
+.galleryBox{
+	background: #fff;
+	cursor: pointer;
+	display: inline-block;
+	margin: 0.8em;
+	padding: 3px 3px 10px;
+	transform:rotate(5deg);
+	transition: all 0.5s ease-in-out;
+	vertical-align: top;
+	width: 20%;
+}
+.galleryBox:nth-child(odd){
+	transform:rotate(-5deg);
+}
+.galleryBox:hover{
+	transform: scale(1.5) ;
+	z-index: 9999;
+}
+.galleryImg{
+	width: 100%;
+}
 .overlay{
 	background: rgba(255,255,255,0.45); 
 	color: #999;
@@ -231,28 +252,96 @@ textarea{
 	z-index: 99999;
 	display: none;
 }
+.rpgAtributte td:nth-child(3){
+	padding-left: 0.8em;
+}
 .rpgBox{
-	background-color: #eee;
+	background-color: #f0f0f0;
 	border-radius: 10px;
-	border: 2px solid #0E7CB0;
+	border: 4px solid #0E7CB0;
 	color: #000;
 	display: inline-block;
 	font-family: "Courier New";
+	font-weight: bold;
 	margin: 0.4em;
 	padding: 0.6em;
 	width: 26%;
 }
 .rpgImg{
 	text-align: center;
+	margin-bottom: 0.3em;
 }
 .rpgImg span{
-	background: url(../img/sprite_pixergame.png) no-repeat;
-	background-size: 64px 546px;
+	background: url(../img/sprite_pixergame.jpg) no-repeat;
+	background-size: 173px 1118px;
 	display: block;
-	height: 32px;
-	width: 65px;
+	height: 70px;
+	margin: 0 auto;
+	width: 70px;
 }
 .cake span{
+	background-position: -2px -86px;
+	width: 91px;
+}
+.ce span{
+	background-position: 0 -689px;
+	width: 167px;
+}
+.cplusplus span{
+	background-position: -2px -516px;
+	width: 140px;
+}
+.drupal span{
+	background-position: -3px -344px;
+}
+.jango span{
+	background-position: 0 -774px;
+	height: 73px;
+	width: 95px;
+}
+.java span{
+	background-position: -1px -258px;
+	height: 68px;
+	width: 71px;
+}
+.jquery span{
+	width: 162px;
+}
+.jscript span{
+	background-position: -2px -172px;
+	height: 73px;
+	width: 53px;
+}
+.mysql span{
+	background-position: -1px -860px;
+	height: 75px;
+	width: 57px;
+}
+.nodejs span{
+	background-position: 0 -602px;
+	height: 68px;
+	width: 88px;
+}
+.php span{
+	background-position: -1px -430px;
+	height: 73px;
+}
+.puntonet span{
+	background-position: -3px -1032px;
+	height: 65px;
+	width: 48px;
+}
+.python span{
+	background-position: 0 -946px;
+	height: 73px;
+}
+.sqlite span{
+
+}
+.sqlserver span{
+
+}
+.vbasic span{
 
 }
 @keyframes fadeInUp {

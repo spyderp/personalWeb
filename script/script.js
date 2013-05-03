@@ -1,5 +1,17 @@
 function disenoWeb(url){
 	$('.content').empty();
+	$.getJSON(url, function(data){
+		$.each(data, function(index, value) {
+			var image =document.createElement('img');
+			var div = document.createElement('div');
+			var option = {
+				'src':'/img/gallery/thump/'+value,
+				'data-imageLarge':'/img/gallery/'+value,
+			}
+			$('.content').append($(div).addClass('galleryBox').append($(image).addClass('galleryImg').attr(option)));
+		});
+	});
+	
 }
 function changeTitle(titulo){
 	$('.titulo').html(titulo);
@@ -29,6 +41,10 @@ function contenidoJson(){
 function inicio(){
 	changeTitle('Curriculum Vitae');
 	$('.content').load('cv.html');
+}
+function lightBox(){
+	var url =$(this).data('imagelarge');
+	Lightview.show(url);	
 }
 function nuevaPagina(){
 	changeTitle($(this).data('title'));
@@ -69,7 +85,7 @@ function programacion(url){
 				var table =document.createElement('table');
 				$(box).addClass('rpgBox');
 				$(box).append($('<div></div>').addClass('rpgImg '+value2.clase).html(span));
-				$(box).append($('<div></div>').addClass('rpgName').html('Nombe: '+value2.nombre));
+				$(box).append($('<div></div>').addClass('rpgName').html('Nombre: '+value2.nombre));
 				$(box).append($('<div></div>').addClass('rpgLvl').html('Lv. '+value2.lvl));
 				$(box).append($('<div></div>').addClass('rpgHp').html('HP '+value2.HP));
 				$(box).append($('<div></div>').addClass('rpgMp').html('MP '+value2.MP));
@@ -78,7 +94,7 @@ function programacion(url){
 					border:0,
 					cellspacing:0
 				});
-				$(table).append($('<tr></tr>').html('<td><span class="icon sword"></span></td><td>'+value2.str+' Str</td><td><span class="icon sombrero"></span></td><td>'+value2.str+' Int</td>'));
+				$(table).addClass('rpgAtributte').append($('<tr></tr>').html('<td><span class="icon sword"></span></td><td>'+value2.str+' Str</td><td><span class="icon sombrero"></span></td><td>'+value2.str+' Int</td>'));
 				$(table).append($('<tr></tr>').html('<td><span class="icon def"></span></td><td>'+value2.def+' Def</td><td><span class="icon fe"></span></td><td>'+value2.fe+' Faith</td>'));
 				$(table).append($('<tr></tr>').html('<td><span class="icon agi"></span></td><td>'+value2.agi+' Agi</td><td><span class="icon suerte"></span></td><td>'+value2.luck+' Luck</td>'));
 				$(box).append(table);
@@ -108,6 +124,7 @@ function showRequest(formData, jqForm, options) {
 
 $('.menu').on('click', nuevaPagina);
 $('.contentJson').on('click', contenidoJson);
+$('.content').on('click', '.galleryImg',lightBox);
 $('.content').on('focus', '.nombreCompleto', function(){
 	var contenido=$('#captchaArea').html();
 	if(contenido==''){
