@@ -41,7 +41,7 @@ function contenidoJson(){
 }
 function inicio(){
 	changeTitle('Diseño Web');
-	disenoWeb('disenoweb.json';
+	disenoWeb('webdesing.json';
 }
 function lightBox(){
 	var url =$(this).data('imagelarge');
