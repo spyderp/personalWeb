@@ -40,8 +40,8 @@ function contenidoJson(){
 	return false;
 }
 function inicio(){
-	changeTitle('Curriculum Vitae');
-	$('.content').load('cv.html');
+	changeTitle('Diseño Web');
+	disenoWeb('disenoweb.json';
 }
 function lightBox(){
 	var url =$(this).data('imagelarge');
